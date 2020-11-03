@@ -1,0 +1,90 @@
+:root {
+  --title-color: #6f6f6f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container .title {
+  text-align: center;
+  margin-top: 5rem;
+  color: var(--title-color);
+}
+
+.container .sign-form {
+  position: relative;
+  margin-top: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+}
+
+.container .profilePic {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+}
+
+.container .profileCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.container .card-text {
+  margin-bottom: 0 !important;
+}
+
+.container .signout {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+}
+
+.container .forbidden-pic {
+  height: 60vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container .text-center {
+  margin-top: 5rem;
+}
+
+.container-home {
+  height: 100vh;
+}
+
+.container-home .home-pic {
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+}
+
+.container-home .home-sigIn {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+}
+/*# sourceMappingURL=main.css.map */
