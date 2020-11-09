@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -25,7 +30,7 @@
                     <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./mainpage.php">Main</a>
+                    <a class="nav-link" href="./mainpage.php">News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./signin.php">Sign In</a>
@@ -102,14 +107,9 @@
                 $query = "INSERT INTO users (firstname, lastname, username, creation, lastlogin, password, picture, role)".
                 " VALUES ('$_POST[firstname]','$_POST[lastname]','$_POST[username]','$time','$time','$hashed_password','$_POST[profilePicture]','$_POST[role]');";
 
-                // $query = "insert into users (".
-                //     "firstname, lastname, username, creation, lastlogin, password, picture, role)".
-                //     "values ('Abi','Ramirez', 'AbiRamriez', '2020-10-29 10:34:09','2020-10-29 10:34:09', 'asd',".
-                //     "'https://ouch-cdn.icons8.com/preview/611/97ad2166-20be-4da8-9320-29e15362b186.png','user');";
-
                 if (mysqli_query($conn, $query)) {
-                    echo "New record created successfully";
-                    header("location: signin.php");
+                    echo "<h5 class='text-center'>New record created successfully. Go to Sign In now!</h5>";
+                    // header("location: signin.php");
                 } else {
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }

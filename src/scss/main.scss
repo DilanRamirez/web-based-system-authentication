@@ -55,13 +55,29 @@
   .text-center {
     margin-top: 5rem;
   }
+  .news-pic {
+    height: 15rem;
+  }
+
+  .news-title {
+    color: var(--title-color);
+    margin-bottom: 2rem;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-title {
+    color: var(--title-color);
+  }
 }
 
 .container-home {
   height: 100vh;
 
   .home-pic {
-    height: 50%;
+    height: 20%;
     display: flex;
     margin-left: auto;
     margin-right: auto;
