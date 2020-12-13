@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/scss/main.css" />
-    <title>Document</title>
+    <title>Admin</title>
 </head>
 <body>
     <div class="container">
@@ -54,41 +54,38 @@
         <h1 class="title">Welcome Admin</h1>
     
     <?php 
-
-        $userCard = "<div class='card' style='width: 18rem;'>
-                        <img class='card-img-top' src='' alt='Card image cap'>
-                        <div class='card-body'>
-                        <h5 class='card-title'>".$row["firstname"].$row["lastname"]."</h5>
-                        <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href='#' class='btn btn-primary'>Go somewhere</a>
-                        </div>
-                    </div>";
                     
         require_once 'db-config.php';
 
         session_start();
-        // echo "<h3> PHP List All Session Variables</h3>";
-        // foreach ($_SESSION as $key=>$val)
-        // echo $key." ".$val."<br/>";
-
-        if($_SESSION["role"] !== 'admin') {
+    
+        if(empty($_SESSION)){
             header("location: forbidden.php");
         }
-        if ($conn->connect_error) die("Fatal Error");
 
-        $query  = "SELECT * FROM users";
-        $result = $conn->query($query);
-        if (!$result) die("Fatal Error");
+        if(!empty($_SESSION)){
+            
+            if($_SESSION["role"] !== 'admin') {
+                header("location: forbidden.php");
+            }
+            if ($conn->connect_error) {
+                die("Fatal Error");
+            }
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            ?>
-            <div class='container'>
-                <div class='row'>
-                    <?php
-                        while($row = $result->fetch_assoc()) {
-                            echo "
-                            <div class='card' style='width: 18rem; margin-right: 3rem; margin-top: 2rem;'>
+            $query  = "SELECT * FROM users";
+            $result = $conn->query($query);
+            if (!$result) {
+                die("Fatal Error");
+            }
+            if ($result->num_rows > 0) {
+                // output data of each row
+                ?>
+                <div class='container'>
+                    <div class='row'>
+                        <?php
+                            while($row = $result->fetch_assoc()) {
+                                echo "
+                                <div class='card' style='width: 18rem; margin-right: 3rem; margin-top: 2rem;'>
                                     <img class='card-img-top' src='".$row["picture"]."' alt='Card image cap'>
                                     <div class='card-body'>
                                         <h5 class='card-title'>".$row["firstname"]." ".$row["lastname"]."</h5>
@@ -97,14 +94,15 @@
                                         <p class='card-text'><strong>Last login: </strong>".$row["lastlogin"]."</p>
                                     </div>
                                 </div>";
-                    }?>
+                        }?>
+                    </div>
                 </div>
-            </div>
-            <?php
-          } else {
-            echo "0 results";
-          }
-          $conn->close();
+                <?php
+            } else {
+                echo "0 results";
+            }
+            $conn->close();
+        }
     ?>
     </div>
 </body>

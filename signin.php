@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/scss/main.css" />
-    <title>System Authentication</title>
+    <title>Sign In</title>
 </head>
 <body>
     <div class="container">
@@ -67,7 +67,14 @@
         
         session_start();
         
-        if(strlen($_SESSION["myusername"]) === 0){
+        // echo "<h3> PHP List All Session Variables</h3>";
+        // foreach ($_SESSION as $key=>$val){
+        //     echo $key." ".$val."<br/>";
+        // }
+        // print_r(count($_SESSION));
+
+        if(empty($_SESSION)){
+            
             if($_SERVER["REQUEST_METHOD"] == "POST") {
                 // username and password sent from form 
                 
@@ -122,6 +129,9 @@
         }else{
             header("location: user.php");
         }
+
+        
+            
         
     ?>
 </body>

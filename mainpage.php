@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/scss/main.css" />
-    <title>System Authentication</title>
+    <title>News Feed</title>
   </head>
   <body>
     <div class="container">

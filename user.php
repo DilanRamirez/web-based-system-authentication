@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/scss/main.css" />
-    <title>System Authentication</title>
+    <title>User</title>
 </head>
 <body>
     <div class="container">
@@ -55,7 +55,7 @@
             include("db-config.php");
             session_start();
             
-            if(strlen($_SESSION["myusername"]) > 0){
+            if(!empty($_SESSION)){
 
                 $username = $_SESSION["myusername"];
 

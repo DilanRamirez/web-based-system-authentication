@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./src/scss/main.css" />
-    <title>System Authentication</title>
+    <title>Sign Up</title>
 </head>
 <body>
     <div class="container">
@@ -81,7 +81,7 @@
         include("db-config.php");
         // session_start();
 
-        if(strlen($_SESSION["myusername"]) === 0){
+        if(empty($_SESSION)){
         
             if($_SERVER["REQUEST_METHOD"] == "POST") {
                 // username and password sent from form 
